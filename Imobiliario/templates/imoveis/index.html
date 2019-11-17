@@ -1,0 +1,48 @@
+{% extends 'imoveis/base.html' %}
+{% load static %}
+{% block content %}
+
+<head>
+
+</head>
+<body>
+    <p> Teste do meu index html</p>
+    {% if list_apartamentos %}
+        <a>Aluguel de apartamentos <span class="badge">{{ list_apartamentos|length }}</span></a>
+        {% for imovel in list_apartamentos %}
+            <div class="row justify-content-md-center" style="margin-bottom: 50px;">
+              <div class="col-lg-3 col-sm-12">
+                <a class="text-center display-4 text-body" href=""> {{ imovel.aluguel| linebreaks}}</a>
+                <img src="" class="img-fluid center" style="width:100px;">
+              </div>
+              <div class="col-lg-9 col-sm-12">
+                <p class="lead">{{ imovel.descricao }}</p>
+              </div>
+            </div>
+            <hr class="m-2">
+            <br>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+    {% if list_casas %}
+        <a>Aluguel de casas <span class="badge">{{ list_casas|length }}</span></a>
+        {% for imovel in list_casas %}
+            <div class="row justify-content-md-center" style="margin-bottom: 50px;">
+              <div class="col-lg-3 col-sm-12">
+                <a class="text-center display-4 text-body" href=""> {{ imovel.aluguel| linebreaks}}</a>
+                <img src="" class="img-fluid center" style="width:100px;">
+              </div>
+              <div class="col-lg-9 col-sm-12">
+                <p class="lead">{{ imovel.descricao }}</p>
+              </div>
+            </div>
+            <hr class="m-2">
+            <br>
+            <br>
+        {% endfor %}
+    {% endif %}
+
+</body>
+</html>
+{% endblock %}

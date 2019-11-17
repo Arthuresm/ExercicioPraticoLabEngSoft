@@ -1,15 +1,18 @@
 from django.db import models
 from django.conf import settings
 
+
+
 class Endereco(models.Model):
     cep = models.CharField(primary_key=True, max_length=8)
-    pais = models.CharField(max_length=60) 
+    pais = models.CharField(max_length=60)
     estado = models.CharField(max_length=60)
+    cidade = models.CharField(max_length=60)
     bairro = models.CharField(max_length=200)
     rua = models.CharField(max_length=60)
     numero = models.PositiveIntegerField(null=True)
     def __str__(self):
-        return self.cep
+        return self.estado + ", " + self.cidade + ", " + self.bairro + ", " + self.rua + ", " + str(self.numero)
 
 
 class Casa(models.Model):
@@ -22,9 +25,10 @@ class Casa(models.Model):
     area = models.FloatField()
     possui_armario = models.BooleanField()
     descricao = models.CharField(max_length=200)
+    aluguel = models.FloatField()
 
     def __str__(self):
-        return str(self.id)
+        return self.endereco.__str__()
 
 class Apartamento(models.Model):
     endereco = models.OneToOneField(Endereco, on_delete=models.CASCADE, null=True)
@@ -40,6 +44,7 @@ class Apartamento(models.Model):
     possui_armario = models.BooleanField()
     descricao = models.CharField(max_length=200)
     portaria_integral = models.BooleanField()
+    aluguel = models.FloatField()
 
     def __str__(self):
-        return str(self.id)
+        return self.endereco.__str__()
