@@ -1,10 +1,10 @@
 from django.db import models
 from django.conf import settings
-
+from django.core.validators import MaxValueValidator
 
 
 class Endereco(models.Model):
-    cep = models.CharField(primary_key=True, max_length=8)
+    cep = models.PositiveIntegerField(primary_key=True, validators=[MaxValueValidator(99999999)])
     pais = models.CharField(max_length=60)
     estado = models.CharField(max_length=60)
     cidade = models.CharField(max_length=60)

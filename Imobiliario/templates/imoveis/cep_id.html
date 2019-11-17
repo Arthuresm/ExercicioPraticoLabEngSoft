@@ -1,12 +1,12 @@
 {% extends 'imoveis/base.html' %}
 {% load static %}
 {% block content %}
-
 <head>
-
+    <title>Busca CEP</title>
 </head>
 <body>
-    <p> Teste do meu index html</p>
+    <h1>Consulta para o CEP: {{consulta}}</h1>
+
     {% if list_apartamentos %}
         <a>Aluguel de apartamentos <span class="badge">{{ list_apartamentos|length }}</span></a>
         {% for imovel in list_apartamentos %}
@@ -42,6 +42,9 @@
         {% endfor %}
     {% endif %}
 
+
+
 </body>
 </html>
+
 {% endblock %}
