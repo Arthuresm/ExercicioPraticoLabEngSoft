@@ -21,7 +21,7 @@ def index(request):
         imovel.aluguel = "R$" + str(imovel.aluguel)
         list_casas.append(imovel)
 
-    return render(request, 'Imoveis/index.html', {'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
+    return render(request, 'imoveis/index.html', {'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
 
 def cep_id(request, cep):
     enderecos = get_object_or_404(Endereco, cep=cep)
@@ -40,7 +40,7 @@ def cep_id(request, cep):
 
     consulta = enderecos.cep
 
-    return render(request, 'Imoveis/cep_id.html', {'consulta': consulta, 'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
+    return render(request, 'imoveis/cep_id.html', {'consulta': consulta, 'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
 
 
 def bairro_id(request, nome_bairro):
@@ -66,4 +66,4 @@ def bairro_id(request, nome_bairro):
             imovel.aluguel = "R$" + str(imovel.aluguel)
             list_casas.append(imovel)
 
-    return render(request, 'Imoveis/bairro.html', {'consulta': consulta, 'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
+    return render(request, 'imoveis/bairro.html', {'consulta': consulta, 'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
