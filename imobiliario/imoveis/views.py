@@ -44,10 +44,8 @@ def cep_id(request, cep):
 
 
 def bairro_id(request, nome_bairro):
-    print("Teste para bairro " + str(nome_bairro))
-
     # enderecos = get_object_or_404(Endereco, bairro=nome_bairro)
-    enderecos = Endereco.objects.filter(bairro=nome_bairro)
+    enderecos = Endereco.objects.filter(bairro__icontains=nome_bairro)
     print(str(enderecos))
     apartamentos = Apartamento.objects.filter(endereco=enderecos)
     casas = Casa.objects.filter(endereco=enderecos)
@@ -67,3 +65,16 @@ def bairro_id(request, nome_bairro):
             list_casas.append(imovel)
 
     return render(request, 'imoveis/bairro.html', {'consulta': consulta, 'list_apartamentos': list_apartamentos, 'list_casas': list_casas})
+
+
+def bairros_disponiveis(request):
+    enderecos = Endereco.objects.all()
+    list_bairro = []
+
+    for endereco in enderecos:
+        aux = endereco.bairro    
+        result = aux in list_bairro
+        if(result == False):
+            list_bairro.append(aux)
+
+    return render(request, 'imoveis/bairros_disponiveis.html', {'list_bairro': list_bairro})
