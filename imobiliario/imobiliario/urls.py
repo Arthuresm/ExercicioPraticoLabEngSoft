@@ -21,9 +21,12 @@ from django.conf.urls.static import static
 app_name = 'imoveis'
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('', views.index, name='index'),
     path('busca/<int:cep>', views.cep_id, name='cep_id'),
     path('busca/bairro/<slug:nome_bairro>', views.bairro_id, name='bairro_id'),
     path('bairro', views.bairros_disponiveis, name='bairro_disponiveis'),
+    path('apartamento/<int:apartamento_id>', views.apartamento_id, name='apartamento_id'),
+    path('casa/<int:casa_id>', views.casa_id, name='casa_id'),
+
 ]

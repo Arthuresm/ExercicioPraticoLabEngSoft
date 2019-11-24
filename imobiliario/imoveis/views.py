@@ -78,3 +78,17 @@ def bairros_disponiveis(request):
             list_bairro.append(aux)
 
     return render(request, 'imoveis/bairros_disponiveis.html', {'list_bairro': list_bairro})
+
+def apartamento_id(request, apartamento_id):
+
+    apartamento = get_object_or_404(Apartamento, pk=apartamento_id)
+    apartamento.aluguel = "R$" + str(apartamento.aluguel)
+    apartamento.valor_condominio = "R$" + str(apartamento.valor_condominio)
+    return render(request, 'imoveis/view_apartamento.html', {'apartamento': apartamento})
+
+def casa_id(request, casa_id):
+
+    casa = get_object_or_404(Casa, pk=casa_id)
+    casa.aluguel = "R$" + str(casa.aluguel)
+    return render(request, 'imoveis/view_casa.html', {'casa': casa})
+

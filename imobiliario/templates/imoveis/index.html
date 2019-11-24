@@ -6,13 +6,12 @@
 
 </head>
 <body>
-    <p> Teste do meu index html</p>
     {% if list_apartamentos %}
         <a>Aluguel de apartamentos <span class="badge">{{ list_apartamentos|length }}</span></a>
         {% for imovel in list_apartamentos %}
             <div class="row justify-content-md-center" style="margin-bottom: 50px;">
               <div class="col-lg-3 col-sm-12">
-                <a class="text-center display-4 text-body" href=""> {{ imovel.aluguel| linebreaks}}</a>
+                <a class="text-center display-4 text-body" href="{% url 'apartamento_id' apartamento_id=imovel.pk %}"> {{ imovel.aluguel| linebreaks}}</a>
               </div>
               <div class="col-lg-9 col-sm-12">
                 <p class="lead">{{ imovel.descricao }}</p>
@@ -29,7 +28,7 @@
         {% for imovel in list_casas %}
             <div class="row justify-content-md-center" style="margin-bottom: 50px;">
               <div class="col-lg-3 col-sm-12">
-                <a class="text-center display-4 text-body" href=""> {{ imovel.aluguel| linebreaks}}</a>
+                <a class="text-center display-4 text-body" href="{% url 'casa_id' casa_id=imovel.pk %}"> {{ imovel.aluguel| linebreaks}}</a>
 
               </div>
               <div class="col-lg-9 col-sm-12">

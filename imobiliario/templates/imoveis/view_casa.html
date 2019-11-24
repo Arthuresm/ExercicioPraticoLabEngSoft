@@ -1,0 +1,27 @@
+{% extends 'imoveis/base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    {% if casa %}
+        <h2>Casa em: {{ casa.endereco.bairro}}</h2>
+
+            <div class="row justify-content-md-center" style="margin-bottom: 50px;">
+              <div class="col-lg-3 col-sm-12">
+                <p class="lead text-center text-body"> Aluguel {{ casa.aluguel}}</p>
+              </div>
+              <div class="col-lg-9 col-sm-12">
+                <p class="lead">{{ casa.descricao }}</p>
+                <p class="lead"> Número de quartos: {{ casa.n_quartos }} </p>
+                <p class="lead"> Número de suítes: {{ casa.n_suites }} </p>
+                <p class="lead"> Número de salas de estar: {{ casa.n_sala_estar }} </p>
+                <p class="lead"> Número de salas de jantar: {{ casa.n_sala_jantar }} </p>
+                <p class="lead"> {{ casa.n_vaga_garagem }}  vagas na garagem</p>
+                <p class="lead"> Número de suítes: {{ casa.n_suites }} </p>
+                <p class="lead"> {{ casa.area }} metros quadrados </p>
+              </div>
+            </div>
+
+    {% endif %}
+</body>
+{% endblock %}

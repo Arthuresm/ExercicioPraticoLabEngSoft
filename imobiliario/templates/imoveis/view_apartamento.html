@@ -1,0 +1,34 @@
+{% extends 'imoveis/base.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+    {% if apartamento %}
+        <h2>Apartamento em: {{ apartamento.endereco.bairro}}</h2>
+
+            <div class="row justify-content-md-center" style="margin-bottom: 50px;">
+              <div class="col-lg-3 col-sm-12">
+                <p class="lead text-center text-body"> Aluguel {{ apartamento.aluguel}}</p>
+                <p class="lead text-center text-body"> Condomínio {{ apartamento.valor_condominio}}</p>
+              </div>
+              <div class="col-lg-9 col-sm-12">
+                <p class="lead">{{ apartamento.descricao }}</p>
+                <p class="lead"> Número de quartos: {{ apartamento.n_quartos }} </p>
+                <p class="lead"> Número de suítes: {{ apartamento.n_suites }} </p>
+                <p class="lead"> Número de salas de estar: {{ apartamento.n_sala_estar }} </p>
+                <p class="lead"> Número de salas de jantar: {{ apartamento.n_sala_jantar }} </p>
+                <p class="lead"> {{ apartamento.n_vaga_garagem }}  vagas na garagem</p>
+                <p class="lead"> Localizado no {{ apartamento.andar}}° Andar </p>
+                <p class="lead"> Número de suítes: {{ apartamento.n_suites }} </p>
+                <p class="lead"> {{ apartamento.area }} metros quadrados </p>
+                {% if apartamento.portaria_integral %}
+                  <p class="lead"> Portaria Integral </p>
+                  {% else %}
+                    <p class="lead"> NÃO possui portaria Integral </p>
+                {% endif %}
+              </div>
+            </div>
+
+    {% endif %}
+</body>
+{% endblock %}
