@@ -46,10 +46,9 @@ def cep_id(request, cep):
 def bairro_id(request, nome_bairro):
     # enderecos = get_object_or_404(Endereco, bairro=nome_bairro)
     enderecos = Endereco.objects.filter(bairro__icontains=nome_bairro)
-    print(str(enderecos))
     apartamentos = Apartamento.objects.filter(endereco=enderecos)
     casas = Casa.objects.filter(endereco=enderecos)
-
+    consulta=nome_bairro
     list_casas = []
     list_apartamentos = []
 

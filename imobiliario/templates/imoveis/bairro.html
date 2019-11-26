@@ -22,6 +22,8 @@
             <br>
             <br>
         {% endfor %}
+        {% else %}
+            <h4>Nenhum apartamento encontrado para este bairro</h4>
     {% endif %}
 
     {% if list_casas %}
@@ -40,6 +42,8 @@
             <br>
             <br>
         {% endfor %}
+        {% else %}
+                <h4>Nenhuma casa encontrada para este bairro</h4>
     {% endif %}
 
 </body>
