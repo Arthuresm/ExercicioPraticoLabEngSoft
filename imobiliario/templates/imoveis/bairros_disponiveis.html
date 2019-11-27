@@ -9,7 +9,7 @@
     <h1>Aqui estão alguns bairros disponíveis</h1>
 
     {% if list_bairro %}
-        <a>Aluguel de apartamentos <span class="badge">{{ list_bairro |length }}</span></a>
+        <a>Bairros encontrados <span class="badge">{{ list_bairro |length }}</span></a>
         {% for bairro in list_bairro %}
             <div class="row justify-content-md-center" style="margin-bottom: 50px;">
               <div class="col-lg-3 col-sm-12">
