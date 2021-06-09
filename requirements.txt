@@ -1,5 +1,5 @@
 Django==2.2.7
-pip==18.1
+pip==19.2
 pytz==2019.3
 setuptools==40.6.2
 sqlparse==0.3.0
